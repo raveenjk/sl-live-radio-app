@@ -183,14 +183,22 @@ function updateUI(station) {
     document.getElementById('popFreq').textContent = station.freq ? `${station.freq} MHz` : 'Web';
 
     const popLogo = document.getElementById('popLogo');
+    const mainLogo = document.getElementById('mainLogo');
+
     if (station.logo) {
         popLogo.innerHTML = `<img src="${station.logo}" alt="">`;
         popLogo.style.background = '';
+        mainLogo.innerHTML = `<img src="${station.logo}" alt="">`;
+        mainLogo.style.background = '';
     } else {
         const initials = station.name.split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
         popLogo.innerHTML = initials;
+        mainLogo.innerHTML = initials;
+
         const hue = carousel.getHue(station);
-        popLogo.style.background = `linear-gradient(135deg, hsl(${hue} 60% 35%), hsl(${hue} 50% 20%))`;
+        const grad = `linear-gradient(135deg, hsl(${hue} 60% 35%), hsl(${hue} 50% 20%))`;
+        popLogo.style.background = grad;
+        mainLogo.style.background = grad;
     }
 
 }

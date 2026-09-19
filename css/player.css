@@ -348,15 +348,49 @@
 
 /* ── Player Info ──────────────────────────────────────── */
 .player__info {
-    margin-bottom: var(--sp-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-sm);
+    max-width: 100%;
+}
+
+.player__logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.player__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player__text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-width: 0;
 }
 
 .player__status {
-    font-size: .8125rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--text-dim);
-    margin-bottom: var(--sp-xs);
-    min-height: 1.2em;
+    margin-bottom: 2px;
 }
 
 .player__status.error {
@@ -364,17 +398,21 @@
 }
 
 .player__name {
-    margin-bottom: var(--sp-xs);
-    min-height: 1.5em;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .player__meta {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--sp-sm);
-    font-size: .875rem;
-    min-height: 1.3em;
+    justify-content: flex-start;
+    gap: var(--sp-md);
+    font-size: 0.8125rem;
 }
 
 .player__meta>span:not(:first-child)::before {
@@ -388,6 +426,23 @@
     font-weight: 600;
     display: flex;
     align-items: center;
+}
+
+/* ── Player Dashboard ─────────────────────────────────── */
+.player__dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-xs);
+    margin-top: var(--sp-xs);
+}
+
+.player__dashboard-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-lg);
+    width: 100%;
 }
 
 /* ── Player Dashboard ─────────────────────────────────── */
