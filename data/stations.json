@@ -1,0 +1,162 @@
+[
+  {
+    "id": "hiru-fm",
+    "name": "Hiru FM",
+    "lang": "Sinhala",
+    "freq": "96.7",
+    "url": "https://radio.lotustechnologieslk.net:2020/stream/hirufmgarden",
+    "logo": "https://image.winudf.com/v2/image1/Y29tLmhpcnVmbS5yZWRyb3NlbWVkaWFfaWNvbl8xNjA0ODM4Njk0XzAyMg/icon.webp?w=280&fakeurl=1&type=.png"
+  },
+  {
+    "id": "sirasa-fm",
+    "name": "Sirasa FM",
+    "lang": "Sinhala",
+    "freq": "106.5",
+    "url": "",
+    "logo": null
+  },
+  {
+    "id": "shaa-fm",
+    "name": "Shaa FM",
+    "lang": "Sinhala",
+    "freq": "96.4",
+    "url": "",
+    "logo": null
+  },
+  {
+    "id": "neth-fm",
+    "name": "Neth FM",
+    "lang": "Sinhala",
+    "freq": "93.4",
+    "url": "https://cp11.serverse.com/proxy/nethfm/stream",
+    "logo": "https://nethfm.lk/radio/NETH%20FM%20Live%20Radio_files/neth1.jpg"
+  },
+  {
+    "id": "gold-fm",
+    "name": "Gold FM",
+    "lang": "English",
+    "freq": "99.6",
+    "url": "https://radio.lotustechnologieslk.net:2020/stream/goldfmgarden",
+    "logo": "https://www.goldfm.lk/images/lllistenlivelogo.jpg"
+  },
+  {
+    "id": "sun-fm",
+    "name": "Sun FM",
+    "lang": "English",
+    "freq": "98.8",
+    "url": "https://radio.lotustechnologieslk.net:2020/stream/sunfmgarden",
+    "logo": "https://www.sunfm.lk/assets/images/liveradio/logo.png"
+  },
+  {
+    "id": "shakthi-fm",
+    "name": "Shakthi FM",
+    "lang": "Tamil",
+    "freq": "104.1",
+    "url": "https://mbc.thestreamtech.com:8086/stream",
+    "logo": "https://shakthifm.com/images/logo.webp"
+  },
+  {
+    "id": "sooriyan-fm",
+    "name": "Sooriyan FM",
+    "lang": "Tamil",
+    "freq": "103.4",
+    "url": "https://radio.lotustechnologieslk.net:8006/",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR40bvCXRsbm7s4PsgviovVSUdInoLIyvZpCQvUCLRnv0OuOAyBko_Cv4k&s=10"
+  },
+  {
+    "id": "star-fm",
+    "name": "Star FM",
+    "lang": "Tamil",
+    "freq": "101.9",
+    "url": "https://stream.starfm.lk:12025/stream",
+    "logo": "https://www.starfm.lk/favicon.ico"
+  },
+  {
+    "id": "ran-fm",
+    "name": "Ran FM",
+    "lang": "Sinhala",
+    "freq": "",
+    "url": "https://a3.asurahosting.com/listen/ranfm/radio.mp3",
+    "logo": "http://ranfm.lk/images/logoranFM.png"
+  },
+  {
+    "id": "y-fm",
+    "name": "Y FM",
+    "lang": "Sinhala",
+    "freq": "",
+    "url": "https://mbc.thestreamtech.com:7032/",
+    "logo": null
+  },
+  {
+    "id": "siyatha-fm",
+    "name": "Siyatha FM",
+    "lang": "Sinhala",
+    "freq": "",
+    "url": "https://srv01.onlineradio.voaplus.com/siyathafm",
+    "logo": null
+  },
+  {
+    "id": "classic-radio",
+    "name": "Classic Radio",
+    "lang": "Sinhala",
+    "freq": "",
+    "url": "https://cp11.serverse.com/proxy/classic/stream",
+    "logo": null
+  },
+  {
+    "id": "lakhanda",
+    "name": "Lakhanda",
+    "lang": "Sinhala",
+    "freq": "97.4",
+    "url": "https://cp12.serverse.com/proxy/itnfm?mp=/stream",
+    "logo": null
+  },
+  {
+    "id": "rangiri-sri-lanka",
+    "name": "Rangiri Sri Lanka",
+    "lang": "Sinhala",
+    "freq": "",
+    "url": "https://rangiri.radioca.st/stream",
+    "logo": null
+  },
+  {
+    "id": "kiss-fm",
+    "name": "Kiss FM",
+    "lang": "English",
+    "freq": "",
+    "url": "https://srv02.onlineradio.voaplus.com/kissfm",
+    "logo": "https://kissfm.lk/kisslogo.png"
+  },
+  {
+    "id": "legends-fm",
+    "name": "Legends 96.6 FM",
+    "lang": "English",
+    "freq": "96.6",
+    "url": "https://mbc.thestreamtech.com:8585/stream",
+    "logo": "https://legends966.com/images/legends966.png"
+  },
+  {
+    "id": "vasantham-fm",
+    "name": "Vasantham FM",
+    "lang": "Tamil",
+    "freq": "",
+    "url": "https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream",
+    "logo": "https://www.vasanthamfm.lk/wp-content/uploads/2023/05/Vasantham-FM.svg"
+  },
+  {
+    "id": "fm-derana",
+    "name": "FM Derana",
+    "lang": "Sinhala",
+    "freq": "90.8",
+    "url": "",
+    "logo": null
+  },
+  {
+    "id": "radio-plus",
+    "name": "Radio Plus",
+    "lang": "Sinhala",
+    "freq": "",
+    "url": "https://altair.streamerr.co/stream/8036",
+    "logo": "https://radioplus.lk/wp-content/uploads/2024/04/Radio-plus-Logo-2-2.png"
+  }
+]
