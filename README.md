@@ -129,3 +129,13 @@ Suggestions, bug reports, and station additions are always welcome! Feel free to
 ## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👨‍💻 Author & Connect
+
+Developed with ❤️ by **Raveen Madhawa**
+
+<a href="https://www.linkedin.com/in/raveenmadhawa/" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-Raveen%20Madhawa-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile" />
+</a>
