@@ -911,3 +911,35 @@
         accent-color: var(--accent);
     }
 }
+
+/* ── Favourite Button ─────────────────────────────────── */
+.btn-fav {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.btn-fav:hover {
+    color: var(--text);
+    background: var(--raised);
+    transform: scale(1.1);
+}
+
+.btn-fav.active {
+    color: var(--accent);
+}
+
+.btn-fav.active svg.icon-heart-outline {
+    display: none;
+}
+
+.btn-fav.active svg.icon-heart-filled {
+    display: block !important;
+}

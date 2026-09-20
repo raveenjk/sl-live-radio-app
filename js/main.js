@@ -82,10 +82,11 @@ async function boot() {
         handleCardSelect
     );
 
-    /* Restore last station */
-    const lastId = store.get('lastStation');
-    if (lastId) {
-        const idx = stations.findIndex(s => s.id === lastId);
+    /* Restore favourite or last station */
+    const favId = store.get('favourite');
+    const loadId = favId || store.get('lastStation');
+    if (loadId) {
+        const idx = stations.findIndex(s => s.id === loadId);
         if (idx >= 0) {
             carousel.selectByIndex(idx, true);
             /* setStation updates UI without playing */
@@ -128,6 +129,21 @@ async function boot() {
     });
 
     /* Controls */
+    document.getElementById('btnFav').addEventListener('click', () => {
+        const current = player.getStation();
+        if (!current) return;
+        const favId = store.get('favourite');
+        const btnFav = document.getElementById('btnFav');
+
+        if (favId === current.id) {
+            store.remove('favourite');
+            btnFav.classList.remove('active');
+        } else {
+            store.set('favourite', current.id);
+            btnFav.classList.add('active');
+        }
+    });
+
     document.getElementById('btnPlay').addEventListener('click', () => player.toggle());
     document.getElementById('btnPrev').addEventListener('click', () => carousel.prev());
     document.getElementById('btnNext').addEventListener('click', () => carousel.next());
@@ -174,6 +190,14 @@ function handleCardSelect(station) {
 
 /* ── UI updates ───────────────────────────────────────── */
 function updateUI(station) {
+    const favId = store.get('favourite');
+    const btnFav = document.getElementById('btnFav');
+    if (favId === station.id) {
+        btnFav.classList.add('active');
+    } else {
+        btnFav.classList.remove('active');
+    }
+
     document.getElementById('playerName').textContent = station.name;
     document.getElementById('playerLang').textContent = station.lang;
     document.getElementById('playerFreq').textContent = station.freq ? `${station.freq} MHz` : '';

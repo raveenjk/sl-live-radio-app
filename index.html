@@ -169,7 +169,21 @@
           <div class="player__logo" id="mainLogo"></div>
           <div class="player__text">
             <p class="player__status" id="playerStatus" aria-live="polite">Ready to play</p>
-            <h1 class="player__name" id="playerName">Select a station</h1>
+            <div style="display: flex; align-items: center; gap: var(--sp-sm);">
+              <h1 class="player__name" id="playerName">Select a station</h1>
+              <button class="btn-fav" id="btnFav" aria-label="Favourite station" title="Set as favourite">
+                <svg class="icon-heart-outline" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 00-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 00-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 000-7.8z" />
+                </svg>
+                <svg class="icon-heart-filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" style="display:none; color: var(--accent);">
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 00-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 00-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 000-7.8z" />
+                </svg>
+              </button>
+            </div>
             <p class="player__meta text-dim" id="playerMeta">
               <span class="player__meta-live" aria-hidden="true">Live</span>
               <span class="player__meta-lang" id="playerLang"></span>

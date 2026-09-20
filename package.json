@@ -1,0 +1,27 @@
+{
+    "name": "island-radio",
+    "version": "1.0.0",
+    "description": "Island Radio Live Player",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
+    },
+    "author": "Raveen",
+    "license": "ISC",
+    "build": {
+        "appId": "com.islandradio.app",
+        "productName": "Island Radio",
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "target": "nsis"
+        }
+    },
+    "devDependencies": {
+        "electron": "^44.4.3",
+        "electron-builder": "^26.15.3"
+    }
+}
