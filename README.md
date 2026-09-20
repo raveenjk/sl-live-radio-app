@@ -1,58 +1,131 @@
 # 📻 Island Radio
 
 <p align="center">
-  A visually stunning, lightweight, and high-performance web radio player tailored for Sri Lankan online radio stations. Built with a deeply responsive mobile-first approach.
+  <img src="https://img.shields.io/badge/Live-Vercel%20App-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Deployment" />
+  <img src="https://img.shields.io/badge/Desktop%20App-itch.io-FA5C5C?style=for-the-badge&logo=itchdotio&logoColor=white" alt="itch.io Desktop App" />
+  <img src="https://img.shields.io/badge/Mobile-User%20Friendly-success?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Friendly" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
 </p>
+
+<p align="center">
+  <strong>A modern, lightweight, and high-performance live radio streaming web application tailored for Sri Lankan online radio stations.</strong><br>
+  Built from the ground up with a <em>mobile-first</em>, ultra-responsive design for seamless listening anywhere, on any device.
+</p>
+
+<p align="center">
+  <a href="https://sl-live-radio-app.vercel.app"><strong>🌐 Try Live Demo</strong></a> • 
+  <a href="https://raveenjk.itch.io/island-radio"><strong>💻 Download Desktop App (itch.io)</strong></a>
+</p>
+
+---
+
+## 📱 Mobile-First & User-Friendly Interface
+
+Island Radio is engineered specifically to provide a smooth, app-like experience straight from your mobile browser without installing anything:
+
+* **📲 Responsive Mobile Layout:** Automatically adapts to any screen size, whether you're using a smartphone, tablet, or desktop monitor.
+* **🎵 Sticky Mini-Player:** On mobile screens, the player collapses into an ergonomic bottom mini-player so it never blocks station browsing.
+* **👆 Smooth Touch Controls:** Swiping carousel tuner and instant tap-to-play optimized for one-handed mobile use.
+* **⚡ Ultra Fast & Lightweight:** Zero external frameworks or heavy libraries. Instant loading even on 3G/4G mobile connections with minimal battery usage.
+
+---
+
+## 📸 Screenshots & Previews
+
+<!-- Replace placeholder image paths with your actual screenshot files when ready -->
+
+<div align="center">
+
+### 🌐 Web & Desktop View
+```
+(Add your Desktop Web Screenshot here)
+```
+<!-- Example: <img src="screenshots/web-preview.png" alt="Desktop Web View" width="800" /> -->
+
+---
+
+### 📱 Mobile Responsive View
+```
+(Add your Mobile Web Screenshot here)
+```
+<!-- Example: <img src="screenshots/mobile-preview.png" alt="Mobile Responsive View" width="360" /> -->
+
+---
+
+### 🖥️ Desktop Standalone App
+```
+(Add your Desktop App Screenshot here)
+```
+<!-- Example: <img src="screenshots/desktop-app-preview.png" alt="Desktop App View" width="800" /> -->
+
+</div>
+
+---
 
 ## ✨ Features
 
-- **Sleek Dashboard Player:** A beautiful desktop dashboard format that gracefully shrinks into an ultra-compact sticky mini-player on mobile devices to prevent viewport blocking.
-- **Retro Swiping Tuner:** Browse and discover active stations via a snappy, horizontal dragging carousel reminiscent of an analog radio tuner.
-- **Dynamic CSS Visualizer:** Fully integrated CSS-driven graphic EQ sound wave that pulses dynamically alongside active playback.
-- **Light & Dark Mode:** Native OS-level syncing with smooth animated transitons plus manual toggles saved seamlessly to LocalStorage.
-- **Seamless Streaming:** Connects to the true global radio streams utilizing the open internet radio registry to curate the best HD feeds securely.
-- **No Dependencies:** Built with pure Vanilla JavaScript, CSS variables, and zero bloated frameworks! Extremely fast initialization and zero setup time.
+- **📻 Retro Swiping Tuner:** Browse and discover active stations via a snappy, horizontal dragging carousel reminiscent of an analog radio tuner.
+- **📊 Dynamic Sound Visualizer:** Integrated CSS-driven graphic EQ sound wave that pulses dynamically alongside active playback.
+- **🌓 Light & Dark Theme:** System-level automatic dark/light theme detection with manual toggle option saved in LocalStorage.
+- **🔍 Quick Station Search:** Instant filtering to find your favorite Sinhala, Tamil, and English stations in seconds.
+- **🌐 Global High-Quality Streams:** Direct, secure HD audio streams curated from reliable open radio registries.
+- **🚀 Zero Dependencies:** Crafted with pure Vanilla HTML5, CSS3, and modern ES6 JavaScript. No Node.js build steps needed.
 
-## 🚀 Getting Started
+---
 
-Since **Island Radio** is built entirely on the native web stack, you don't need NodeJS or NPM limits to spin it up.
+## 🚀 Quick Start (Local Setup)
+
+Since **Island Radio** uses pure native web technologies, no installation or npm setup is required:
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/raveenjk/sl-live-radio-app.git
    ```
-2. **Launch:** 
-   Simply double-click the `index.html` file, or for the best viewing experience, open the folder using [VS Code Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
-3. **Listen:** Plug in your headphones and enjoy instant playback!
+
+2. **Open the project:**
+   Simply double-click `index.html` to open it in any web browser, or use VS Code's **Live Server** extension.
+
+3. **Enjoy Listening:**
+   Pick your favorite station and enjoy high-definition live Sri Lankan radio!
+
+---
 
 ## 📁 Project Structure
 
-```
-├── index.html        # Main App Entrypoint
+```text
+├── index.html           # Main Application Entrypoint
 ├── data/
-│   └── stations.json # Local API mock data wrapping stream mappings and logos
+│   └── stations.json    # Radio station list, stream URLs & metadata
 ├── css/
-│   ├── base.css      # Core variable tokens, color palettes and resets
-│   ├── browse.css    # Styles relative to the search filter layout
-│   └── player.css    # Logic for sticky headers, swiping carousel, and CSS visualizer
-└── js/
-    ├── main.js       # Main runtime tying DOM events together 
-    ├── player.js     # HTML5 Audio API orchestration state machine 
-    ├── store.js      # Wrappers for robust LocalStorage fetching 
-    └── browse.js     # Fuzzy-search functions for locating modules 
+│   ├── base.css         # Theme variables, colors & typography
+│   ├── browse.css       # Search bar & station grid layout
+│   └── player.css       # Audio player, audio wave visualizer & tuner
+├── js/
+│   ├── main.js          # App lifecycle & event bindings
+│   ├── player.js        # HTML5 Audio engine & playback state
+│   ├── store.js         # LocalStorage preferences manager
+│   └── browse.js        # Search & station filtering logic
+├── pages/
+│   └── download.html    # App download links (itch.io, App Store, Play Store)
+└── desktop/             # Desktop application build files
 ```
 
-## 🛠 Tech Stack
+---
 
-- **HTML5:** Semantic architecture
-- **CSS3:** Heavy usage of Native CSS Custom Variables for theming, Flexbox for dashboards, bounding rects for animations. 
-- **Vanilla JS (ES6+):** Module-pattern separation, `Audio` browser APIs, state synchronization.
+## 🛠️ Built With
+
+- **HTML5:** Clean, accessible semantic elements.
+- **CSS3:** Native CSS custom properties, flexbox/grid, and fluid typography.
+- **Vanilla JavaScript (ES6+):** Modular code structure utilizing the native HTML5 Web Audio API.
+
+---
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome! 
-Feel free to check [issues page](https://github.com/raveenjk/sl-live-radio-app/issues). 
+Suggestions, bug reports, and station additions are always welcome! Feel free to open an issue or submit a pull request on the [Issues page](https://github.com/raveenjk/sl-live-radio-app/issues).
+
+---
 
 ## 📝 License
 
-This project is generously distributed via open-source under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
