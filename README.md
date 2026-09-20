@@ -53,10 +53,8 @@ Island Radio is engineered specifically to provide a smooth, app-like experience
 ---
 
 ### 🖥️ Desktop Standalone App
-```
-(Add your Desktop App Screenshot here)
-```
-<!-- Example: <img src="screenshots/desktop-app-preview.png" alt="Desktop App View" width="800" /> -->
+
+<img src="screenshots/desktop-app.png" alt="Island Radio Desktop Standalone App" width="100%" />
 
 </div>
 
