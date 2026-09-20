@@ -46,7 +46,7 @@ Island Radio is engineered specifically to provide a smooth, app-like experience
 ```
 (Add your Mobile Web Screenshot here)
 ```
-<!-- Example: <img src="screenshots/mobile-preview.png" alt="Mobile Responsive View" width="360" /> -->
+<img src="screenshots/mobile-preview.jpg" alt="Mobile Responsive View" width="360" /> -->
 
 ---
 
