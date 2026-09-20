@@ -125,7 +125,7 @@
           <span class="live-badge__dot" aria-hidden="true"></span>
           Live
         </span>
-        <a href="https://raveenjk.itch.io/island-radio" target="_blank" class="btn btn--sm btn--outline">
+        <a href="pages/download.html" class="btn btn--sm btn--outline">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M8 1v10M4 8l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />
