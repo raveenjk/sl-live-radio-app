@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Island Radio — Live Sri Lankan Radio</title>
+  <meta name="description"
+    content="Listen to Sri Lankan radio stations live. Sinhala, Tamil and English stations in one tap.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/player.css">
+  <link rel="stylesheet" href="css/browse.css">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- PWA Manifest & App Icon -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+  <meta name="theme-color" content="#4facfe">
+  <link rel="apple-touch-icon" href="images/icon.svg">
+</head>
+
+<body>
+  <!-- ── Page glow (follows active station hue) ────────── -->
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- ── Popup Player (Single-Row Desktop Clone) ────────── -->
+  <div class="popup-player" id="popupPlayer" aria-hidden="true">
+    <div class="container popup-player__inner">
+      <button class="pop__edge-btn" id="popPrevEdge" aria-label="Previous station">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M15 18l-6-6 6-6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <div class="pop__now-playing" id="popInfo" title="Scroll to top">
+        <div class="pop__logo" id="popLogo"></div>
+        <div class="pop__info">
+          <div class="pop__status">Ready to play</div>
+          <div class="pop__name" id="popName">Select a station</div>
+          <div class="pop__meta">
+            <span class="pop__dot"></span> Live &bull; <span id="popFreq"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pop__controls">
+        <button class="pop__ctrl" id="popPrev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M19 20L9 12l10-8v16zM7 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></button>
+        <button class="pop__play" id="popPlay">
+          <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+            <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
+          </svg>
+        </button>
+        <button class="pop__ctrl" id="popNext"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 4l10 8-10 8V4zM17 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></button>
+      </div>
+
+      <!-- Desktop extra columns -->
+      <div class="pop__viz-container">
+        <div class="pop__viz" id="popViz">
+          <span style="--delay: 0.1s"></span><span style="--delay: 0.3s"></span><span style="--delay: 0.2s"></span><span
+            style="--delay: 0.5s"></span><span style="--delay: 0.1s"></span><span style="--delay: 0.4s"></span><span
+            style="--delay: 0.2s"></span><span style="--delay: 0.6s"></span>
+        </div>
+        <div class="pop__viz-track">
+          <div class="pop__viz-fill"></div>
+        </div>
+      </div>
+
+      <div class="pop__volume">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <input type="range" id="popVolume" min="0" max="1" step="0.01" value="0.8">
+      </div>
+
+      <button class="pop__edge-btn" id="popNextEdge" aria-label="Next station">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M9 18l6-6-6-6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Header ────────────────────────────────────────── -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__brand" aria-label="Island Radio home">
+        <svg class="header__logo" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" stroke="var(--accent)" stroke-width="2" />
+          <path d="M10 9l10 5-10 5V9z" fill="var(--accent)" />
+        </svg>
+        <span class="header__name">Island Radio</span>
+      </a>
+
+      <div class="header__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode">
+          <svg class="theme-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="theme-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            aria-hidden="true" style="display:none">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <span class="live-badge" id="liveBadge" aria-label="Live broadcast indicator">
+          <span class="live-badge__dot" aria-hidden="true"></span>
+          Live
+        </span>
+        <a href="pages/download.html" class="btn btn--sm btn--outline">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1v10M4 8l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          Get App
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Player ────────────────────────────────────────── -->
+  <section class="player" aria-label="Radio player">
+    <div class="container">
+
+      <!-- Carousel -->
+      <div class="carousel" aria-label="Station selector">
+        <div class="carousel__tuner">
+          <button class="carousel__arrow carousel__arrow--prev" id="btnCarouselPrev" aria-label="Previous station">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <div class="carousel__track-wrapper">
+            <div class="carousel__scale" aria-hidden="true"></div>
+            <div class="carousel__needle" aria-hidden="true"></div>
+            <div class="carousel__track" id="carouselTrack" role="listbox" aria-label="Radio stations">
+              <!-- Station tiles injected by carousel.js -->
+            </div>
+          </div>
+
+          <button class="carousel__arrow carousel__arrow--next" id="btnCarouselNext" aria-label="Next station">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <p class="carousel__hint text-dim text-sm">Drag or swipe to browse stations</p>
+      </div>
+
+      <!-- Player Dashboard -->
+      <div class="player__dashboard">
+        <!-- Station info -->
+        <div class="player__info">
+          <div class="player__logo" id="mainLogo"></div>
+          <div class="player__text">
+            <p class="player__status" id="playerStatus" aria-live="polite">Ready to play</p>
+            <div style="display: flex; align-items: center; gap: var(--sp-sm);">
+              <h1 class="player__name" id="playerName">Select a station</h1>
+              <button class="btn-fav" id="btnFav" aria-label="Favourite station" title="Set as favourite">
+                <svg class="icon-heart-outline" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 00-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 00-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 000-7.8z" />
+                </svg>
+                <svg class="icon-heart-filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" style="display:none; color: var(--accent);">
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 00-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 00-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 000-7.8z" />
+                </svg>
+              </button>
+            </div>
+            <p class="player__meta text-dim" id="playerMeta">
+              <span class="player__meta-live" aria-hidden="true">Live</span>
+              <span class="player__meta-lang" id="playerLang"></span>
+              <span class="player__meta-freq" id="playerFreq"></span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Large Sound Wave Visualizer -->
+        <div class="visualizer" id="playerVisualizer" aria-hidden="true">
+          <span style="--delay: -0.1s"></span>
+          <span style="--delay: -0.8s"></span>
+          <span style="--delay: -0.3s"></span>
+          <span style="--delay: -1.2s"></span>
+          <span style="--delay: -0.5s"></span>
+          <span style="--delay: -0.0s"></span>
+          <span style="--delay: -1.5s"></span>
+          <span style="--delay: -0.4s"></span>
+          <span style="--delay: -0.9s"></span>
+          <span style="--delay: -0.2s"></span>
+          <span style="--delay: -1.1s"></span>
+          <span style="--delay: -0.6s"></span>
+          <span style="--delay: -1.4s"></span>
+          <span style="--delay: -0.1s"></span>
+          <span style="--delay: -0.7s"></span>
+        </div>
+
+        <div class="player__dashboard-actions">
+          <!-- Controls -->
+          <div class="player__controls">
+            <button class="ctrl ctrl--skip" id="btnPrev" aria-label="Previous station">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M19 20L9 12l10-8v16zM7 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <button class="ctrl ctrl--play" id="btnPlay" aria-label="Play">
+              <svg class="icon-play" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <svg class="icon-pause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                style="display:none">
+                <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
+              </svg>
+            </button>
+
+            <button class="ctrl ctrl--skip" id="btnNext" aria-label="Next station">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 4l10 8-10 8V4zM17 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Volume -->
+          <div class="player__volume">
+            <label for="volumeSlider" class="sr-only">Volume</label>
+            <svg class="player__volume-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <input type="range" id="volumeSlider" class="player__volume-slider" min="0" max="1" step="0.01" value="0.8">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Browse ────────────────────────────────────────── -->
+  <section class="browse" aria-label="Browse stations">
+    <div class="container">
+
+      <!-- Search -->
+      <div class="search">
+        <svg class="search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+          <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <input type="search" id="searchInput" class="search__input" placeholder="Search stations…"
+          aria-label="Search stations">
+        <kbd class="search__kbd text-xs" aria-hidden="true">Ctrl K</kbd>
+      </div>
+
+      <!-- Language filters -->
+      <div class="filters" role="radiogroup" aria-label="Filter by language">
+        <button class="filter active" data-lang="all" aria-pressed="true">All</button>
+        <button class="filter" data-lang="Sinhala" aria-pressed="false">Sinhala</button>
+        <button class="filter" data-lang="Tamil" aria-pressed="false">Tamil</button>
+        <button class="filter" data-lang="English" aria-pressed="false">English</button>
+      </div>
+
+      <!-- Station grid heading -->
+      <div class="browse__heading">
+        <h2>All radio stations</h2>
+        <span class="browse__count text-dim text-sm" id="stationCount"></span>
+      </div>
+
+      <!-- Station grid -->
+      <div class="browse__grid" id="stationGrid" role="list">
+        <!-- Station cards injected by browse.js -->
+      </div>
+
+      <!-- Empty state -->
+      <div class="browse__empty" id="emptyState" hidden>
+        <p>No stations found</p>
+        <button class="btn btn--sm btn--accent" id="btnShowAll">Show all stations</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="text-dim text-sm">
+        &copy; 2026 Island Radio &bull;
+        Developed by <a href="https://www.linkedin.com/in/raveenmadhawa/" target="_blank" rel="noopener noreferrer"
+          class="footer__link" style="color: var(--accent); text-decoration: none; font-weight: 500;">Raveen Madhawa</a>
+      </p>
+      <a href="pages/privacy.html" class="text-dim text-sm" style="opacity: 0.6; text-decoration: none;">Privacy
+        Policy</a>
+      <p class="text-dim text-xs" style="margin-top: 4px;">Your island. Your music. Live.</p>
+    </div>
+  </footer>
+
+  <!-- Audio element — never autoplays -->
+  <audio id="audioEl" preload="none"></audio>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registered: ', reg.scope))
+          .catch(err => console.error('SW registration failed: ', err));
+      });
+    }
+  </script>
+</body>
+
+</html>
