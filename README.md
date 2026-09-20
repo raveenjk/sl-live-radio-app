@@ -38,7 +38,7 @@ Island Radio is engineered specifically to provide a smooth, app-like experience
 
 ### 🌐 Web & Desktop View
 
-<img src="screenshots/desktop-view.png" alt="Island Radio Desktop View" width="100%" />
+<img src="screenshots/web-player-view.png" alt="Island Radio Web Player View" width="100%" />
 
 ---
 
