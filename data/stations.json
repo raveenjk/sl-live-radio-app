@@ -8,22 +8,6 @@
     "logo": "https://image.winudf.com/v2/image1/Y29tLmhpcnVmbS5yZWRyb3NlbWVkaWFfaWNvbl8xNjA0ODM4Njk0XzAyMg/icon.webp?w=280&fakeurl=1&type=.png"
   },
   {
-    "id": "sirasa-fm",
-    "name": "Sirasa FM",
-    "lang": "Sinhala",
-    "freq": "106.5",
-    "url": "",
-    "logo": null
-  },
-  {
-    "id": "shaa-fm",
-    "name": "Shaa FM",
-    "lang": "Sinhala",
-    "freq": "96.4",
-    "url": "",
-    "logo": null
-  },
-  {
     "id": "neth-fm",
     "name": "Neth FM",
     "lang": "Sinhala",
@@ -53,7 +37,7 @@
     "lang": "Tamil",
     "freq": "104.1",
     "url": "https://mbc.thestreamtech.com:8086/stream",
-    "logo": "https://shakthifm.com/images/logo.webp"
+    "logo": "https://play-lh.googleusercontent.com/PL_mgkbJ7_lzMFuiF9VRZmgr5Zcq2Og5TEkH-FWi91oZpZlVHqj2--ax5GfNz7gCFtojwbIL0HG2fI4Km8vg=w240-h480-rw"
   },
   {
     "id": "sooriyan-fm",
@@ -85,7 +69,7 @@
     "lang": "Sinhala",
     "freq": "",
     "url": "https://mbc.thestreamtech.com:7032/",
-    "logo": null
+    "logo": "https://image.pngaaa.com/904/1532904-middle.png"
   },
   {
     "id": "siyatha-fm",
@@ -93,7 +77,7 @@
     "lang": "Sinhala",
     "freq": "",
     "url": "https://srv01.onlineradio.voaplus.com/siyathafm",
-    "logo": null
+    "logo": "https://i0.wp.com/voa.lk/wp-content/uploads/2017/09/435.png?ssl=1"
   },
   {
     "id": "classic-radio",
@@ -101,7 +85,7 @@
     "lang": "Sinhala",
     "freq": "",
     "url": "https://cp11.serverse.com/proxy/classic/stream",
-    "logo": null
+    "logo": "https://cdn.onlineradiobox.com/img/logo/8/78418.v2.png"
   },
   {
     "id": "lakhanda",
@@ -109,7 +93,7 @@
     "lang": "Sinhala",
     "freq": "97.4",
     "url": "https://cp12.serverse.com/proxy/itnfm?mp=/stream",
-    "logo": null
+    "logo": "https://cdn.onlineradiobox.com/img/fblogo/9/31169.v2.png"
   },
   {
     "id": "rangiri-sri-lanka",
@@ -117,7 +101,7 @@
     "lang": "Sinhala",
     "freq": "",
     "url": "https://rangiri.radioca.st/stream",
-    "logo": null
+    "logo": "https://liveonlineradio.net/wp-content/uploads/2011/12/rangiri-sri-lanka.gif"
   },
   {
     "id": "kiss-fm",
@@ -142,14 +126,6 @@
     "freq": "",
     "url": "https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream",
     "logo": "https://www.vasanthamfm.lk/wp-content/uploads/2023/05/Vasantham-FM.svg"
-  },
-  {
-    "id": "fm-derana",
-    "name": "FM Derana",
-    "lang": "Sinhala",
-    "freq": "90.8",
-    "url": "",
-    "logo": null
   },
   {
     "id": "radio-plus",
@@ -189,7 +165,7 @@
     "lang": "colombo",
     "freq": "",
     "url": "https://srv02.onlineradio.voaplus.com/realfm",
-    "logo": "null"
+    "logo": "https://liveonlineradio.net/wp-content/uploads/2012/10/real-radio-97-1.jpg"
   },
   {
     "id": "hadawatha-fm",
@@ -197,7 +173,7 @@
     "lang": "Sinhala",
     "freq": "",
     "url": "https://radio-station.hadawatha.lk/listen/hadawatha-fm/radio.mp3",
-    "logo": null
+    "logo": "https://hadawatha.lk/wp-content/uploads/2023/12/Hadawatha-FM-Logo.png"
   },
   {
     "id": "laksara",
@@ -205,7 +181,7 @@
     "lang": "sinhala",
     "freq": "",
     "url": "https://5a1178b42cc03.streamlock.net/laksara/laksara/chunklist_w1617919055.m3u8",
-    "logo": null
+    "logo": "https://cdn.onlineradiobox.com/img/fblogo/3/65133.v4.png"
   },
   {
     "id": "gee-fm",
@@ -221,7 +197,7 @@
     "lang": "Sinhala",
     "freq": "",
     "url": "https://radio-station.hadawatha.lk/listen/dreamzlanka-fm/radio.mp3",
-    "logo": null
+    "logo": "https://dreamzlanka.com/wp-content/uploads/2021/08/DreamzLanka-Logo.png"
   },
   {
     "id": "freefm-lk",
@@ -229,7 +205,7 @@
     "lang": "sinhala",
     "freq": "",
     "url": "https://stream-49.zeno.fm/1tcs4fbw7rquv?zs=uMl9BSttRSuqxlf3fWqc8g",
-    "logo": null
+    "logo": "https://freefm.lk/wp-content/uploads/2020/09/Free-FM-Logo.png"
   },
   {
     "id": "jothi-fm",
@@ -237,6 +213,6 @@
     "lang": "english",
     "freq": "",
     "url": "https://radio-station.hadawatha.lk/listen/jothi-fm/radio.mp3",
-    "logo": null
+    "logo": "https://cdn.onlineradiobox.com/img/fblogo/5/112665.v2.png"
   }
 ]
