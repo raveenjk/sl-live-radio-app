@@ -16,6 +16,12 @@
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- PWA Manifest & App Icon -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+  <meta name="theme-color" content="#4facfe">
+  <link rel="apple-touch-icon" href="images/icon.svg">
 </head>
 
 <body>
@@ -314,6 +320,17 @@
 
   <!-- Scripts -->
   <script type="module" src="js/main.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registered: ', reg.scope))
+          .catch(err => console.error('SW registration failed: ', err));
+      });
+    }
+  </script>
 </body>
 
 </html>

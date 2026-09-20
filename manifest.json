@@ -1,0 +1,17 @@
+{
+    "name": "Island Radio",
+    "short_name": "Island Radio",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#4facfe",
+    "description": "Live Sri Lankan Radio Player",
+    "icons": [
+        {
+            "src": "./images/icon.svg",
+            "sizes": "192x192 512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

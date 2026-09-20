@@ -1,0 +1,46 @@
+{
+  "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
+  "applicationId": "com.islandradio.app",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "port": 0,
+  "documentRoot": "/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "tokenSecurity": "one-time",
+  "logging": {
+    "enabled": false
+  },
+  "nativeAllowList": [
+    "app.*",
+    "os.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "Island Radio",
+      "width": 450,
+      "height": 800,
+      "minWidth": 375,
+      "minHeight": 800,
+      "center": true,
+      "fullScreen": false,
+      "alwaysOnTop": false,
+      "icon": "/images/favicon.png",
+      "enableInspector": false,
+      "borderless": false,
+      "maximize": false,
+      "hidden": false,
+      "resizable": true,
+      "exitProcessOnClose": true
+    }
+  },
+  "cli": {
+    "binaryName": "island-radio",
+    "resourcesPath": "/",
+    "extensionsPath": "/extensions/",
+    "clientLibrary": "/js/neutralino.js",
+    "binaryVersion": "6.9.0",
+    "clientVersion": "6.9.0"
+  }
+}
