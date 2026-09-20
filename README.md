@@ -42,11 +42,13 @@ Island Radio is engineered specifically to provide a smooth, app-like experience
 
 ---
 
-### 📱 Mobile Responsive View
-```
-(Add your Mobile Web Screenshot here)
-```
-<img src="screenshots/mobile-preview.jpeg" alt="Mobile Responsive View" width="360" /> -->
+### 📱 Mobile Responsive View (Dark & Light Mode)
+
+<p align="center">
+  <img src="screenshots/mobile-dark.png" alt="Island Radio Mobile Player (Dark Mode)" width="320" />
+  &nbsp;&nbsp;
+  <img src="screenshots/mobile-light.png" alt="Island Radio Mobile Sticky Player (Light Mode)" width="320" />
+</p>
 
 ---
 
