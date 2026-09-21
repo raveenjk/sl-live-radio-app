@@ -1,6 +1,14 @@
 # 📻 Island Radio
 
 <p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron.js" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Live-Vercel%20App-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Deployment" />
   <img src="https://img.shields.io/badge/Desktop%20App-itch.io-FA5C5C?style=for-the-badge&logo=itchdotio&logoColor=white" alt="itch.io Desktop App" />
   <img src="https://img.shields.io/badge/Mobile-User%20Friendly-success?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Friendly" />
@@ -31,8 +39,6 @@ Island Radio is engineered specifically to provide a smooth, app-like experience
 ---
 
 ## 📸 Screenshots & Previews
-
-<!-- Replace placeholder image paths with your actual screenshot files when ready -->
 
 <div align="center">
 
@@ -67,11 +73,53 @@ Island Radio is engineered specifically to provide a smooth, app-like experience
 - **🌓 Light & Dark Theme:** System-level automatic dark/light theme detection with manual toggle option saved in LocalStorage.
 - **🔍 Quick Station Search:** Instant filtering to find your favorite Sinhala, Tamil, and English stations in seconds.
 - **🌐 Global High-Quality Streams:** Direct, secure HD audio streams curated from reliable open radio registries.
-- **🚀 Zero Dependencies:** Crafted with pure Vanilla HTML5, CSS3, and modern ES6 JavaScript. No Node.js build steps needed.
+- **🚀 Zero Dependencies:** Crafted with pure Vanilla HTML5, CSS3, and modern ES6 JavaScript. No Node.js build steps needed for the web app.
 
 ---
 
-## 🚀 Quick Start (Local Setup)
+## 🛠️ Languages & Technologies Used
+
+Island Radio is built using modern web standards for its core streaming platform, complemented by two dedicated desktop client architectures (Electron.js & Python):
+
+### 🌐 1. Web Application (Core Frontend)
+* **HTML5:**
+  - Semantic markup for clean layout, structure, and accessibility.
+  - Native `<audio>` stream handling and custom vector SVG icons.
+* **CSS3 (Modern CSS):**
+  - **CSS Custom Properties (Variables):** Powering seamless real-time Dark / Light theme toggling without page reload.
+  - **CSS Grid & Flexbox:** Ensuring fluid, pixel-perfect responsive layouts across mobile, tablet, and desktop viewports.
+  - **CSS Keyframes & Transforms:** High-performance hardware-accelerated sound wave visualizer and carousel slide animations.
+* **JavaScript (Vanilla ES6+):**
+  - **HTML5 Web Audio API:** Direct stream consumption, playback lifecycle, buffering management, and volume normalization.
+  - **Fetch API:** Asynchronous retrieval and parsing of station metadata from `stations.json`.
+  - **LocalStorage API:** Persisting user preferences (such as selected theme and favorite stations) client-side with zero latency.
+  - **Modular Architecture:** Clean separation of concerns (`player.js`, `browse.js`, `store.js`, `main.js`) with **zero external JS dependencies or bloated npm packages**.
+* **JSON:**
+  - Structured storage for station streams, logos, genre tags, and frequency metadata (`data/stations.json`).
+
+---
+
+### 🖥️ 2. Desktop Application (Multi-Engine Implementations)
+
+The project includes two desktop implementations to give users flexibility between native desktop integration and ultra-low resource usage:
+
+#### ⚡ Option A: Electron.js Client (`desktop/desktop/`)
+* **Node.js & Electron (`^29.0.0`):** Wraps the web application in a dedicated desktop window with native OS integration.
+* **System Tray & Window Management:** Runs quietly in the Windows notification area (System Tray) with minimized-to-tray capability.
+* **Global Media Shortcuts:** Control playback (play/pause/skip) system-wide using hardware media keys.
+* **electron-builder:** Automated packaging for Windows installers (NSIS `.exe`) and Microsoft Store (`.appx`) packages.
+
+#### 🐍 Option B: Python Lightweight Client (`desktop/python_desktop/`)
+* **Python 3:**
+  - **`pywebview`:** Renders the web interface using the system's native Microsoft Edge WebView2 engine, offering near-instant startup and significantly lower RAM usage compared to typical Chromium wrappers.
+  - **`ctypes` (Win32 API):** Interacts directly with Windows `user32.dll` to manage frameless window styles, compact floating mini-player mode, and "Always on Top" pinning.
+  - **`PyInstaller`:** Compiles the Python application into a standalone, portable `.exe` binary distributed on itch.io.
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+### 🌐 Running the Web App
 
 Since **Island Radio** uses pure native web technologies, no installation or npm setup is required:
 
@@ -88,10 +136,27 @@ Since **Island Radio** uses pure native web technologies, no installation or npm
 
 ---
 
+### 🖥️ Running the Desktop Clients (Optional)
+
+* **Run Electron Client:**
+  ```bash
+  cd desktop/desktop
+  npm install
+  npm start
+  ```
+
+* **Run Python Client:**
+  ```bash
+  cd desktop/python_desktop
+  python main.py
+  ```
+
+---
+
 ## 📁 Project Structure
 
 ```text
-├── index.html           # Main Application Entrypoint
+├── index.html           # Main Web Application Entrypoint
 ├── data/
 │   └── stations.json    # Radio station list, stream URLs & metadata
 ├── css/
@@ -104,17 +169,13 @@ Since **Island Radio** uses pure native web technologies, no installation or npm
 │   ├── store.js         # LocalStorage preferences manager
 │   └── browse.js        # Search & station filtering logic
 ├── pages/
-│   └── download.html    # App download links (itch.io, App Store, Play Store)
-└── desktop/             # Desktop application build files
+│   ├── download.html    # App download links (itch.io, App Store, Play Store)
+│   └── privacy.html     # Privacy policy page
+├── screenshots/         # Preview images for README documentation
+└── desktop/
+    ├── desktop/         # Electron.js desktop client (Node.js, electron-builder)
+    └── python_desktop/  # Python lightweight desktop client (pywebview, PyInstaller)
 ```
-
----
-
-## 🛠️ Built With
-
-- **HTML5:** Clean, accessible semantic elements.
-- **CSS3:** Native CSS custom properties, flexbox/grid, and fluid typography.
-- **Vanilla JavaScript (ES6+):** Modular code structure utilizing the native HTML5 Web Audio API.
 
 ---
 
