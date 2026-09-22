@@ -1,6 +1,0 @@
-﻿
-CommandType     Name 
------------     ---- 
-ExternalScript  np...
-
-
