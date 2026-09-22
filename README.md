@@ -101,15 +101,7 @@ Island Radio is built using modern web standards for its core streaming platform
 
 ### 🖥️ 2. Desktop Application (Multi-Engine Implementations)
 
-The project includes two desktop implementations to give users flexibility between native desktop integration and ultra-low resource usage:
-
-#### ⚡ Option A: Electron.js Client (`desktop/desktop/`)
-* **Node.js & Electron (`^29.0.0`):** Wraps the web application in a dedicated desktop window with native OS integration.
-* **System Tray & Window Management:** Runs quietly in the Windows notification area (System Tray) with minimized-to-tray capability.
-* **Global Media Shortcuts:** Control playback (play/pause/skip) system-wide using hardware media keys.
-* **electron-builder:** Automated packaging for Windows installers (NSIS `.exe`) and Microsoft Store (`.appx`) packages.
-
-#### 🐍 Option B: Python Lightweight Client (`desktop/python_desktop/`)
+#### 🐍 Python Lightweight Client (`desktop/python_desktop/`)
 * **Python 3:**
   - **`pywebview`:** Renders the web interface using the system's native Microsoft Edge WebView2 engine, offering near-instant startup and significantly lower RAM usage compared to typical Chromium wrappers.
   - **`ctypes` (Win32 API):** Interacts directly with Windows `user32.dll` to manage frameless window styles, compact floating mini-player mode, and "Always on Top" pinning.
